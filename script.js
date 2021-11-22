@@ -19,23 +19,18 @@ function playRound(playerSelection, computerSelection) {
   // For each three paths, three more paths depending on computer selection
 
   // 1 = player win
-  // 0 = lose
-  // -1 = tie
+  // 0 = tie
+  // -1 = AI win
   let playerWins;
-
-  // Player's selection, capitalized, for the returned string
-  let properPlayerSelection;
 
   switch (playerSelection.toUpperCase()) {
     case 'ROCK':
-      properPlayerSelection = 'Rock';
-
       switch(computerSelection) {
         case 'Rock':
-          playerWins = -1;
+          playerWins = 0;
           break;
         case 'Paper':
-          playerWins = 0;
+          playerWins = -1;
           break;
         case 'Scissors':
           playerWins = 1;
@@ -44,33 +39,29 @@ function playRound(playerSelection, computerSelection) {
       break;
 
     case 'PAPER':
-      properPlayerSelection = 'Paper';
-
       switch(computerSelection) {
         case 'Rock':
           playerWins = 1;
           break;
         case 'Paper':
-          playerWins = -1;
+          playerWins = 0;
           break;
         case 'Scissors':
-          playerWins = 0;
+          playerWins = -1;
           break;
       }
       break;
 
     case 'SCISSORS':
-      properPlayerSelection = 'Scissors';
-
       switch(computerSelection) {
         case 'Rock':
-          playerWins = 0;
+          playerWins = -1;
           break;
         case 'Paper':
           playerWins = 1;
           break;
         case 'Scissors':
-          playerWins = -1;
+          playerWins = 0;
           break;
       }
       break;
@@ -78,14 +69,7 @@ function playRound(playerSelection, computerSelection) {
 
 
   // Declare winner
-  // return either You Win! or You Lose! or Tie!
-  if (playerWins === 1) {
-    return `You win! ${properPlayerSelection} beats ${computerSelection}!`;
-  } else if (playerWins === 0) {
-    return `You lose! ${properPlayerSelection} is beaten by ${computerSelection}!`;
-  } else {
-    return `It's a tie! Both of you chose ${computerSelection}!`;
-  }
+  return playerWins;
 }
 
 
@@ -115,13 +99,16 @@ function game() {
 
     // Simulate a round with each participant's inputs and log the result
     roundResult = playRound(playerSelection, computerSelection);
-    console.log(roundResult);
 
     // Calculate the wins of the round, do nothing on tie
-    if (roundResult.includes("You win!")) {
+    if (roundResult === 1) {
+      console.log("You won!");
       playerWins++;
-    } else if (roundResult.includes("You lose!")) {
+    } else if (roundResult === -1) {
+      console.log("You lost!");
       aiWins++;
+    } else {
+      console.log("Draw!");
     }
   }
 
