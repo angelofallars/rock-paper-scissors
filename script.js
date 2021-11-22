@@ -83,6 +83,7 @@ const buttons = document.querySelectorAll(".buttons > button");
 const playerScoreText = document.querySelector(".score__number.player");
 const aiScoreText = document.querySelector(".score__number.ai");
 const roundResultText = document.querySelector(".round-result");
+const winner = document.querySelector(".winner");
 
 playerScoreText.textContent = '0';
 aiScoreText.textContent = '0';
@@ -101,18 +102,24 @@ buttons.forEach((button) => {
       case (1):
         playerScore++;
         playerScoreText.textContent = playerScore;
-        roundResultText.textContent = `You win! ${playerMove} wins against ${aiMove}!`;
+        roundResultText.textContent = `You won this round! ${playerMove} wins against ${aiMove}!`;
         break;
 
       case (-1):
         aiScore++;
         aiScoreText.textContent = aiScore;
-        roundResultText.textContent = `You lost! ${aiMove} wins against ${playerMove}!`;
+        roundResultText.textContent = `You lost this round! ${aiMove} wins against ${playerMove}!`;
         break;
 
       case (0):
         roundResultText.textContent = `Tie! You both chose ${aiMove}!`;
         break;
+    }
+
+    if (playerScore >= 5) {
+      winner.textContent = "You win!";
+    } else if (aiScore >= 5) {
+      winner.textContent = "You lost! Better luck next time!";
     }
   }); 
 });
