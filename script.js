@@ -12,6 +12,12 @@ function computerPlay () {
   }
 }
 
+function toCapitalCase(string) {
+  const firstLetter = string.slice(0, 1).toUpperCase();
+  const otherLetters = string.slice(1).toLowerCase();
+
+  return firstLetter + otherLetters;
+}
 
 // Simulate a round of Rock Paper Scissors
 function playRound(playerSelection, computerSelection) {
@@ -73,27 +79,40 @@ function playRound(playerSelection, computerSelection) {
 }
 
 
-// Simulate 5 rounds of Rock Paper Scissors
-function game() {
-  let playerSelection;
-  let computerSelection;
-  let roundResult;
-  let playerWins = 0;
-  let aiWins = 0;
+const buttons = document.querySelectorAll(".buttons > button");
+const playerScoreText = document.querySelector(".score__number.player");
+const aiScoreText = document.querySelector(".score__number.ai");
+const roundResultText = document.querySelector(".round-result");
 
-  console.log("Rock Paper Scissors vs AI! Win 3 rounds out of 5 to win!")
+playerScoreText.textContent = '0';
+aiScoreText.textContent = '0';
 
-  return;
+let playerScore = 0;
+let aiScore = 0;
 
-  // Declare the winner of the entire game
-  if (playerWins > aiWins) {
-    console.log("🎆 You won the game! 🎆");
-  } else if (playerWins < aiWins) {
-    console.log("😭 You lost the game! 😭");
-  } else {
-    console.log("It's a tie!");
-  }
-}
+buttons.forEach((button) => {
+  button.addEventListener("click", (e) => {
+    const playerMove = toCapitalCase(e.target.getAttribute('id'));
+    const aiMove = computerPlay();
 
+    const roundResult = playRound(playerMove, aiMove);
 
-game();
+    switch (roundResult) {
+      case (1):
+        playerScore++;
+        playerScoreText.textContent = playerScore;
+        roundResultText.textContent = `You win! ${playerMove} wins against ${aiMove}!`;
+        break;
+
+      case (-1):
+        aiScore++;
+        aiScoreText.textContent = aiScore;
+        roundResultText.textContent = `You lost! ${aiMove} wins against ${playerMove}!`;
+        break;
+
+      case (0):
+        roundResultText.textContent = `Tie! You both chose ${aiMove}!`;
+        break;
+    }
+  }); 
+});
