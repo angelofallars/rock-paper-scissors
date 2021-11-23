@@ -90,6 +90,19 @@ aiScoreText.textContent = '0';
 let playerScore = 0;
 let aiScore = 0;
 
+// Remove the animation class for the increment animations on the score texts
+playerScoreText.addEventListener("animationend", (e) => {
+  if (e.target.classList.contains("score__number--bang")) {
+    e.target.classList.remove("score__number--bang");
+  }
+})
+aiScoreText.addEventListener("animationend", (e) => {
+  if (e.target.classList.contains("score__number--bang")) {
+    e.target.classList.remove("score__number--bang");
+  }
+})
+
+
 function makePlayerMove (e) {
     const playerMove = toCapitalCase(e.target.getAttribute('id'));
     const aiMove = computerPlay();
@@ -100,12 +113,14 @@ function makePlayerMove (e) {
       case (1):
         playerScore++;
         playerScoreText.textContent = playerScore;
+        playerScoreText.classList.add("score__number--bang");
         roundResultText.textContent = `You won this round! ${playerMove} wins against ${aiMove}!`;
         break;
 
       case (-1):
         aiScore++;
         aiScoreText.textContent = aiScore;
+        aiScoreText.classList.add("score__number--bang");
         roundResultText.textContent = `You lost this round! ${aiMove} wins against ${playerMove}!`;
         break;
 

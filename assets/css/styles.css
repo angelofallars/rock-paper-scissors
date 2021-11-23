@@ -32,6 +32,20 @@ h1 {
   max-width: 50%;
 }
 
+@keyframes increment {
+  from {
+    transform: scale(1.4);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.score__number--bang {
+  animation-name: increment;
+  animation-duration: 0.20s;
+}
+
 .buttons {
   display: flex;
   gap: 10px;
