@@ -117,10 +117,12 @@ function makePlayerMove (e) {
     if (playerScore >= 5) {
       winner.textContent = "You win!";
       winner.classList.add("show");
+      winner.classList.add("cyan");
       endGame();
     } else if (aiScore >= 5) {
-      winner.textContent = "You lost! Better luck next time!";
+      winner.textContent = "You lost!";
       winner.classList.add("show");
+      winner.classList.add("gray");
       endGame();
     }
 }

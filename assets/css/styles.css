@@ -83,3 +83,12 @@ body {
   animation-name: fadein;
   animation-duration: 0.25s;
 }
+
+.winner.show.cyan {
+  background-color: #427b58;
+}
+
+.winner.show.gray {
+  background-color: #ebdbb2;
+  color: #282828;
+}
