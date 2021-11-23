@@ -51,6 +51,23 @@ body {
   color: #076678;
 }
 
+@keyframes clickbtn {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.07);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.button--click {
+  animation-name: clickbtn;
+  animation-duration: 0.15s;
+}
+
 .button--red {
   background-color: #9d0006;
   border-color: #9d0006;

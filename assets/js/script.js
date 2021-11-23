@@ -131,10 +131,23 @@ function endGame() {
   buttons.forEach((button) => {
     button.classList.add("inactive");
     button.removeEventListener("click", makePlayerMove);
+    button.removeEventListener("click", animateClickButton);
   })
 }
 
+function animateClickButton(e) {
+  e.target.classList.add("button--click");
+}
 
 buttons.forEach((button) => {
   button.addEventListener("click", makePlayerMove); 
+
+  // Add that clicky clack animation when you click on the button
+  button.addEventListener("click", animateClickButton);
+
+  button.addEventListener("animationend", (e) => {
+    if (e.target.classList.contains("button--click")) {
+      e.target.classList.remove("button--click");
+    }
+  })
 });
