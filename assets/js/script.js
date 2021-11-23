@@ -87,20 +87,20 @@ function finishAnimationEnd(element, animationClass) {
 }
 
 const buttons = document.querySelectorAll(".buttons > button");
-const playerScoreText = document.querySelector(".score__number.player");
-const aiScoreText = document.querySelector(".score__number.ai");
+const playerScore = document.querySelector(".score__number.player");
+const aiScore = document.querySelector(".score__number.ai");
 const roundResultText = document.querySelector(".round-result");
 const winner = document.querySelector(".winner");
 
-playerScoreText.textContent = '0';
-aiScoreText.textContent = '0';
+playerScore.textContent = '0';
+aiScore.textContent = '0';
 
-let playerScore = 0;
-let aiScore = 0;
+let playerScoreCount = 0;
+let aiScoreCount = 0;
 
 // Remove the animation class for the increment animations on the score texts
-finishAnimationEnd(playerScoreText, "score__number--bang");
-finishAnimationEnd(aiScoreText, "score__number--bang");
+finishAnimationEnd(playerScore, "score__number--bang");
+finishAnimationEnd(aiScore, "score__number--bang");
 
 
 function makePlayerMove (e) {
@@ -111,16 +111,16 @@ function makePlayerMove (e) {
 
     switch (roundResult) {
       case (1):
-        playerScore++;
-        playerScoreText.textContent = playerScore;
-        playerScoreText.classList.add("score__number--bang");
+        playerScoreCount++;
+        playerScore.textContent = playerScoreCount;
+        playerScore.classList.add("score__number--bang");
         roundResultText.textContent = `You won this round! ${playerMove} wins against ${aiMove}!`;
         break;
 
       case (-1):
-        aiScore++;
-        aiScoreText.textContent = aiScore;
-        aiScoreText.classList.add("score__number--bang");
+        aiScoreCount++;
+        aiScore.textContent = aiScoreCount;
+        aiScore.classList.add("score__number--bang");
         roundResultText.textContent = `You lost this round! ${aiMove} wins against ${playerMove}!`;
         break;
 
@@ -129,12 +129,12 @@ function makePlayerMove (e) {
         break;
     }
 
-    if (playerScore >= 5) {
+    if (playerScoreCount >= 5) {
       winner.textContent = "You win!";
       winner.classList.add("show");
       winner.classList.add("cyan");
       endGame();
-    } else if (aiScore >= 5) {
+    } else if (aiScoreCount >= 5) {
       winner.textContent = "You lost!";
       winner.classList.add("show");
       winner.classList.add("gray");
