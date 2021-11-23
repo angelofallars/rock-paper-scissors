@@ -78,7 +78,6 @@ function playRound(playerSelection, computerSelection) {
   return playerWins;
 }
 
-
 const buttons = document.querySelectorAll(".buttons > button");
 const playerScoreText = document.querySelector(".score__number.player");
 const aiScoreText = document.querySelector(".score__number.ai");
@@ -91,8 +90,7 @@ aiScoreText.textContent = '0';
 let playerScore = 0;
 let aiScore = 0;
 
-buttons.forEach((button) => {
-  button.addEventListener("click", (e) => {
+function makePlayerMove (e) {
     const playerMove = toCapitalCase(e.target.getAttribute('id'));
     const aiMove = computerPlay();
 
@@ -118,8 +116,21 @@ buttons.forEach((button) => {
 
     if (playerScore >= 5) {
       winner.textContent = "You win!";
+      endGame();
     } else if (aiScore >= 5) {
       winner.textContent = "You lost! Better luck next time!";
+      endGame();
     }
-  }); 
+}
+
+function endGame() {
+  buttons.forEach((button) => {
+    button.classList.add("inactive");
+    button.removeEventListener("click", makePlayerMove);
+  })
+}
+
+
+buttons.forEach((button) => {
+  button.addEventListener("click", makePlayerMove); 
 });

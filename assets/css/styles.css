@@ -50,3 +50,9 @@ body {
   border-color: #3F72AF;
   color: #3F72AF;
 }
+
+.buttons > button.inactive {
+  background-color: #DBE2EF;
+  color: #3F72AF;
+  border: 0;
+}
