@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
 body {
-  background-color: #F9F7F7;
-  color: #112D4E;
+  background-color: #fbf1c7;
+  color: #3c3836;
 }
 
 .container {
@@ -34,9 +34,9 @@ body {
 }
 
 .buttons > button {
-  background-color: #3F72AF;
-  border: 3px solid #3F72AF;
-  color: #F9F7F7;
+  background-color: #076678;
+  border: 3px solid #076678;
+  color: #fbf1c7;
   border-radius: 30px;
   font-weight: 700;
   font-size: 0.8em;
@@ -47,13 +47,13 @@ body {
 
 .buttons > button:hover {
   background-color: rgba(0, 0, 0 ,0);
-  border-color: #3F72AF;
-  color: #3F72AF;
+  border-color: #076678;
+  color: #076678;
 }
 
 .buttons > button.inactive {
-  background-color: #DBE2EF;
-  color: #3F72AF;
+  background-color: #ebdbb2;
+  color: #282828;
   border: 0;
 }
 
@@ -76,8 +76,8 @@ body {
   margin: 15px 0;
   font-size: 1.1em;
   padding: 20px 40px;
-  background-color: #3F72AF;
-  color: #F9F7F7;
+  background-color: #076678;
+  color: #fbf1c7;
   border-radius: 12px;
   
   animation-name: fadein;
