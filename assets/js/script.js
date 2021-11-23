@@ -78,6 +78,14 @@ function playRound(playerSelection, computerSelection) {
   return playerWins;
 }
 
+function finishAnimationEnd(element, animationClass) {
+  element.addEventListener("animationend", (e) => {
+    if (e.target.classList.contains(animationClass)) {
+      e.target.classList.remove(animationClass);
+    }
+  })
+}
+
 const buttons = document.querySelectorAll(".buttons > button");
 const playerScoreText = document.querySelector(".score__number.player");
 const aiScoreText = document.querySelector(".score__number.ai");
@@ -91,16 +99,8 @@ let playerScore = 0;
 let aiScore = 0;
 
 // Remove the animation class for the increment animations on the score texts
-playerScoreText.addEventListener("animationend", (e) => {
-  if (e.target.classList.contains("score__number--bang")) {
-    e.target.classList.remove("score__number--bang");
-  }
-})
-aiScoreText.addEventListener("animationend", (e) => {
-  if (e.target.classList.contains("score__number--bang")) {
-    e.target.classList.remove("score__number--bang");
-  }
-})
+finishAnimationEnd(playerScoreText, "score__number--bang");
+finishAnimationEnd(aiScoreText, "score__number--bang");
 
 
 function makePlayerMove (e) {
@@ -160,9 +160,5 @@ buttons.forEach((button) => {
   // Add that clicky clack animation when you click on the button
   button.addEventListener("click", animateClickButton);
 
-  button.addEventListener("animationend", (e) => {
-    if (e.target.classList.contains("button--click")) {
-      e.target.classList.remove("button--click");
-    }
-  })
+  finishAnimationEnd(button, "button--click");
 });
