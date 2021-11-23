@@ -56,3 +56,30 @@ body {
   color: #3F72AF;
   border: 0;
 }
+
+.winner {
+  display: none;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.winner.show {
+  display: block;
+  margin: 15px 0;
+  font-size: 1.1em;
+  padding: 20px 40px;
+  background-color: #3F72AF;
+  color: #F9F7F7;
+  border-radius: 12px;
+  
+  animation-name: fadein;
+  animation-duration: 0.25s;
+}
