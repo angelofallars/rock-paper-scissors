@@ -91,7 +91,9 @@ const buttons = document.querySelectorAll(".buttons > button");
 const playerScore = document.querySelector(".score__number.player");
 const aiScore = document.querySelector(".score__number.ai");
 const roundResultText = document.querySelector(".round-result");
-const winner = document.querySelector(".winner");
+
+const winner = document.createElement("div");
+winner.classList.add("winner");
 
 playerScore.textContent = '0';
 aiScore.textContent = '0';
@@ -132,13 +134,13 @@ function makePlayerMove (e) {
 
     if (playerScoreCount >= 5) {
       winner.textContent = "You win!";
-      winner.classList.add("show");
-      winner.classList.add("cyan");
+      winner.classList.add("winner--green");
+      container.appendChild(winner);
       endGame();
     } else if (aiScoreCount >= 5) {
       winner.textContent = "You lost!";
-      winner.classList.add("show");
-      winner.classList.add("gray");
+      winner.classList.add("winner--gray");
+      container.appendChild(winner);
       endGame();
     }
 }

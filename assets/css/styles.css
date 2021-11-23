@@ -123,10 +123,6 @@ h1 {
   border: 0;
 }
 
-.winner {
-  display: none;
-}
-
 @keyframes fadein {
   from {
     opacity: 0;
@@ -137,7 +133,7 @@ h1 {
   }
 }
 
-.winner.show {
+.winner {
   display: block;
   margin: 15px 0;
   font-size: 1.1em;
@@ -150,11 +146,11 @@ h1 {
   animation-duration: 0.25s;
 }
 
-.winner.show.cyan {
+.winner--green {
   background-color: #427b58;
 }
 
-.winner.show.gray {
+.winner--gray {
   background-color: #ebdbb2;
   color: #282828;
 }
