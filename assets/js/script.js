@@ -86,6 +86,7 @@ function finishAnimationEnd(element, animationClass) {
   })
 }
 
+const container = document.querySelector("#container");
 const buttons = document.querySelectorAll(".buttons > button");
 const playerScore = document.querySelector(".score__number.player");
 const aiScore = document.querySelector(".score__number.ai");
