@@ -33,7 +33,7 @@ body {
   margin: 20px 0;
 }
 
-.buttons > button {
+.button {
   background-color: #076678;
   border: 3px solid #076678;
   color: #fbf1c7;
@@ -45,13 +45,43 @@ body {
   transition: all 0.2s ease-in-out;
 }
 
-.buttons > button:hover {
+.button:hover {
   background-color: rgba(0, 0, 0 ,0);
   border-color: #076678;
   color: #076678;
 }
 
-.buttons > button.inactive {
+.button--red {
+  background-color: #9d0006;
+  border-color: #9d0006;
+}
+
+.button--red:hover {
+  color: #9d0006;
+  border-color: #9d0006;
+}
+
+.button--yellow {
+  background-color: #b57614;
+  border-color: #b57614;
+}
+
+.button--yellow:hover {
+  color: #b57614;
+  border-color: #b57614;
+}
+
+.button--green {
+  background-color: #427b58;
+  border-color: #427b58;
+}
+
+.button--green:hover {
+  color: #427b58;
+  border-color: #427b58;
+}
+
+.button.inactive {
   background-color: #ebdbb2;
   color: #282828;
   border: 0;
