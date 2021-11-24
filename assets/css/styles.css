@@ -100,13 +100,13 @@ h1 {
   border-color: #427b58;
 }
 
-.button.inactive {
+.button--inactive {
   background-color: #ebdbb2;
   color: #282828;
   border: 0;
 }
 
-.button.inactive:hover {
+.button--inactive:hover {
   transform: none;
 }
 

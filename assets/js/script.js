@@ -158,7 +158,7 @@ function makePlayerMove (e) {
 
 function endGame() {
   buttons.forEach((button) => {
-    button.classList.add("inactive");
+    button.classList.add("button--inactive");
     button.removeEventListener("click", makePlayerMove);
     button.removeEventListener("click", animateClickButton);
   })
@@ -185,7 +185,7 @@ function startGame() {
   aiScoreCount = 0;
 
   buttons.forEach((button) => {
-    button.classList.remove("inactive");
+    button.classList.remove("button--inactive");
 
     button.addEventListener("click", makePlayerMove); 
 
