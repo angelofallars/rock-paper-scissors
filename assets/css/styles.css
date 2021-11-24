@@ -48,7 +48,7 @@ h1 {
 
 .buttons {
   display: flex;
-  gap: 10px;
+  gap: 16px;
   margin: 20px 0;
 }
 
@@ -61,24 +61,22 @@ h1 {
   font-size: 0.8em;
   width: 120px;
   height: 120px;
-  transition: all 0.2s ease-in-out;
+  transition: all 0.15s ease-in-out;
 }
 
 .button:hover {
-  background-color: rgba(0, 0, 0 ,0);
-  border-color: #076678;
-  color: #076678;
+  transform: scale(1.08);
 }
 
 @keyframes clickbtn {
   0% {
-    transform: scale(1);
+    transform: scale(1.08);
   }
   50% {
-    transform: scale(1.07);
+    transform: scale(1.15);
   }
   100% {
-    transform: scale(1);
+    transform: scale(1.08);
   }
 }
 
@@ -92,18 +90,8 @@ h1 {
   border-color: #9d0006;
 }
 
-.button--red:hover {
-  color: #9d0006;
-  border-color: #9d0006;
-}
-
 .button--yellow {
   background-color: #b57614;
-  border-color: #b57614;
-}
-
-.button--yellow:hover {
-  color: #b57614;
   border-color: #b57614;
 }
 
@@ -112,15 +100,14 @@ h1 {
   border-color: #427b58;
 }
 
-.button--green:hover {
-  color: #427b58;
-  border-color: #427b58;
-}
-
 .button.inactive {
   background-color: #ebdbb2;
   color: #282828;
   border: 0;
+}
+
+.button.inactive:hover {
+  transform: none;
 }
 
 @keyframes fadein {
