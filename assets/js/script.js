@@ -144,19 +144,23 @@ function makePlayerMove (e) {
     }
 
     if (playerScoreCount >= 5) {
-      winnerText.textContent = "You win!";
-      winnerPopup.classList.add("winner--green");
-      container.appendChild(winnerPopup);
-      endGame();
+      endGame(1);
     } else if (aiScoreCount >= 5) {
-      winnerText.textContent = "You lost!";
-      winnerPopup.classList.add("winner--gray");
-      container.appendChild(winnerPopup);
-      endGame();
+      endGame(-1);
     }
 }
 
-function endGame() {
+function endGame(winner) {
+  if (winner === 1) {
+    winnerText.textContent = "You win!";
+    winnerPopup.classList.add("winner--green");
+  } else if (winner === -1) {
+    winnerText.textContent = "You lost!";
+    winnerPopup.classList.add("winner--gray");
+  }
+
+  container.appendChild(winnerPopup);
+
   buttons.forEach((button) => {
     button.classList.add("button--inactive");
     button.removeEventListener("click", makePlayerMove);
