@@ -187,10 +187,10 @@ function startGame() {
   buttons.forEach((button) => {
     button.classList.remove("button--inactive");
 
-    button.addEventListener("click", makePlayerMove); 
-
     // Add that clicky clack animation when you click on the button
     button.addEventListener("click", animateClickButton);
+
+    button.addEventListener("click", makePlayerMove); 
 
     finishAnimationEnd(button, "button--click");
   });
