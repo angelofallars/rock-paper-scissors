@@ -157,11 +157,32 @@ function animateClickButton(e) {
   e.target.classList.add("button--click");
 }
 
-buttons.forEach((button) => {
-  button.addEventListener("click", makePlayerMove); 
+function startGame() {
+  // Remove the game over text leftover from a previous game
+  if (container.contains(winner)) {
+    container.removeChild(winner);
+    winner.classList.remove("winner--green");
+    winner.classList.remove("winner--gray");
+  }
 
-  // Add that clicky clack animation when you click on the button
-  button.addEventListener("click", animateClickButton);
+  roundResultText.textContent = '';
 
-  finishAnimationEnd(button, "button--click");
-});
+  playerScore.textContent = '0';
+  aiScore.textContent = '0';
+
+  playerScoreCount = 0;
+  aiScoreCount = 0;
+
+  buttons.forEach((button) => {
+    button.classList.remove("inactive");
+
+    button.addEventListener("click", makePlayerMove); 
+
+    // Add that clicky clack animation when you click on the button
+    button.addEventListener("click", animateClickButton);
+
+    finishAnimationEnd(button, "button--click");
+  });
+}
+
+startGame();
