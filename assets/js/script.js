@@ -150,7 +150,7 @@ function makePlayerMove (e) {
     }
 }
 
-function endGame(winner) {
+async function endGame(winner) {
   if (winner === 1) {
     winnerText.textContent = "You win!";
     winnerPopup.classList.add("winner--green");
@@ -159,13 +159,19 @@ function endGame(winner) {
     winnerPopup.classList.add("winner--gray");
   }
 
-  container.appendChild(winnerPopup);
-
   buttons.forEach((button) => {
-    button.classList.add("button--inactive");
     button.removeEventListener("click", makePlayerMove);
     button.removeEventListener("click", animateClickButton);
   })
+
+  buttons.forEach((button) => {
+    button.classList.add("button--inactive");
+  })
+
+  await new Promise(resolve => setTimeout(resolve, 600));
+
+  container.appendChild(winnerPopup);
+
 }
 
 function animateClickButton(e) {
