@@ -146,6 +146,14 @@ h1 {
   animation-duration: 0.09s;
 }
 
+.round-result--green {
+  color: #79740e;
+}
+
+.round-result--red {
+  color: #9d0006;
+}
+
 @keyframes fadein {
   from {
     opacity: 0;

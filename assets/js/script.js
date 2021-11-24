@@ -124,24 +124,28 @@ function makePlayerMove (e) {
 
     const roundResult = playRound(playerMove, aiMove);
     roundResultText.classList.add("round-result--pop");
+    roundResultText.classList.remove("round-result--green");
+    roundResultText.classList.remove("round-result--red");
 
     switch (roundResult) {
       case (1):
         playerScoreCount++;
         playerScore.textContent = playerScoreCount;
         playerScore.classList.add("score__number--bang");
-        roundResultText.textContent = `You won this round! ${playerMove} wins against ${aiMove}!`;
+        roundResultText.textContent = `You won this round!`;
+        roundResultText.classList.add("round-result--green");
         break;
 
       case (-1):
         aiScoreCount++;
         aiScore.textContent = aiScoreCount;
         aiScore.classList.add("score__number--bang");
-        roundResultText.textContent = `You lost this round! ${aiMove} wins against ${playerMove}!`;
+        roundResultText.textContent = `You lost this round!`;
+        roundResultText.classList.add("round-result--red");
         break;
 
       case (0):
-        roundResultText.textContent = `Tie! You both chose ${aiMove}!`;
+        roundResultText.textContent = `It's a tie!`;
         break;
     }
 
