@@ -119,41 +119,41 @@ finishAnimationEnd(roundResultText, "round-result--pop");
 
 
 function makePlayerMove (e) {
-    const playerMove = toCapitalCase(e.target.getAttribute('id'));
-    const aiMove = computerPlay();
+  const playerMove = toCapitalCase(e.target.getAttribute('id'));
+  const aiMove = computerPlay();
 
-    const roundResult = playRound(playerMove, aiMove);
-    roundResultText.classList.add("round-result--pop");
-    roundResultText.classList.remove("round-result--green");
-    roundResultText.classList.remove("round-result--red");
+  const roundResult = playRound(playerMove, aiMove);
+  roundResultText.classList.add("round-result--pop");
+  roundResultText.classList.remove("round-result--green");
+  roundResultText.classList.remove("round-result--red");
 
-    switch (roundResult) {
-      case (1):
-        playerScoreCount++;
-        playerScore.textContent = playerScoreCount;
-        playerScore.classList.add("score__number--bang");
-        roundResultText.textContent = `You won this round!`;
-        roundResultText.classList.add("round-result--green");
-        break;
+  switch (roundResult) {
+    case (1):
+      playerScoreCount++;
+      playerScore.textContent = playerScoreCount;
+      playerScore.classList.add("score__number--bang");
+      roundResultText.textContent = `You won this round!`;
+      roundResultText.classList.add("round-result--green");
+      break;
 
-      case (-1):
-        aiScoreCount++;
-        aiScore.textContent = aiScoreCount;
-        aiScore.classList.add("score__number--bang");
-        roundResultText.textContent = `You lost this round!`;
-        roundResultText.classList.add("round-result--red");
-        break;
+    case (-1):
+      aiScoreCount++;
+      aiScore.textContent = aiScoreCount;
+      aiScore.classList.add("score__number--bang");
+      roundResultText.textContent = `You lost this round!`;
+      roundResultText.classList.add("round-result--red");
+      break;
 
-      case (0):
-        roundResultText.textContent = `It's a tie!`;
-        break;
-    }
+    case (0):
+      roundResultText.textContent = `It's a tie!`;
+      break;
+  }
 
-    if (playerScoreCount >= 5) {
-      endGame(1);
-    } else if (aiScoreCount >= 5) {
-      endGame(-1);
-    }
+  if (playerScoreCount >= 5) {
+    endGame(1);
+  } else if (aiScoreCount >= 5) {
+    endGame(-1);
+  }
 }
 
 async function endGame(winner) {
