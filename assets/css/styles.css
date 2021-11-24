@@ -27,7 +27,8 @@ a {
   font-size: 1.5em;
   padding: 20px 0;
   text-align: center;
-  min-height: 82vh;
+  min-height: 500px;
+  max-height: 600px;
 }
 
 .scores {
