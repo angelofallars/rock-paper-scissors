@@ -134,7 +134,10 @@ h1 {
 }
 
 .winner {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
   margin: 15px 0;
   font-size: 1.1em;
   padding: 20px 40px;
@@ -153,4 +156,17 @@ h1 {
 .winner--gray {
   background-color: #ebdbb2;
   color: #282828;
+}
+
+.play-again {
+  color: #fbf1c7;
+  background-color: rgba(0, 0, 0, 0);
+  border: 1px solid #fbf1c7;
+  border-radius: 5px;
+  padding: 5px 14px;
+}
+
+.winner--gray > .play-again {
+  color: #282828;
+  border-color: #282828;
 }

@@ -92,14 +92,23 @@ const playerScore = document.querySelector(".score__number.player");
 const aiScore = document.querySelector(".score__number.ai");
 const roundResultText = document.querySelector(".round-result");
 
-const winner = document.createElement("div");
-winner.classList.add("winner");
+const winnerPopup = document.createElement("div");
+
+const winnerText = document.createElement("div");
+const playAgainButton = document.querySelector(".play-again");
+
+playAgainButton.addEventListener("click", startGame);
+winnerPopup.classList.add("winner");
+
+winnerPopup.appendChild(winnerText);
+winnerPopup.appendChild(playAgainButton);
 
 playerScore.textContent = '0';
 aiScore.textContent = '0';
 
 let playerScoreCount = 0;
 let aiScoreCount = 0;
+
 
 // Remove the animation class for the increment animations on the score texts
 finishAnimationEnd(playerScore, "score__number--bang");
@@ -133,14 +142,14 @@ function makePlayerMove (e) {
     }
 
     if (playerScoreCount >= 5) {
-      winner.textContent = "You win!";
-      winner.classList.add("winner--green");
-      container.appendChild(winner);
+      winnerText.textContent = "You win!";
+      winnerPopup.classList.add("winner--green");
+      container.appendChild(winnerPopup);
       endGame();
     } else if (aiScoreCount >= 5) {
-      winner.textContent = "You lost!";
-      winner.classList.add("winner--gray");
-      container.appendChild(winner);
+      winnerText.textContent = "You lost!";
+      winnerPopup.classList.add("winner--gray");
+      container.appendChild(winnerPopup);
       endGame();
     }
 }
@@ -159,10 +168,10 @@ function animateClickButton(e) {
 
 function startGame() {
   // Remove the game over text leftover from a previous game
-  if (container.contains(winner)) {
-    container.removeChild(winner);
-    winner.classList.remove("winner--green");
-    winner.classList.remove("winner--gray");
+  if (container.contains(winnerPopup)) {
+    container.removeChild(winnerPopup);
+    winnerPopup.classList.remove("winner--green");
+    winnerPopup.classList.remove("winner--gray");
   }
 
   roundResultText.textContent = '';
