@@ -5,9 +5,18 @@ body {
   color: #3c3836;
 }
 
+body, html {
+  min-height: 100vh;
+  margin: 0;
+}
+
 h1 {
   font-size: 1.5em;
   margin: 30px 0;
+}
+
+a {
+  color: #3c3836;
 }
 
 #container {
@@ -16,8 +25,9 @@ h1 {
   flex-direction: column;
   align-items: center;
   font-size: 1.5em;
-  margin: 20px 0;
+  padding: 20px 0;
   text-align: center;
+  min-height: 82vh;
 }
 
 .scores {
@@ -236,6 +246,20 @@ h1 {
 .winner--gray > .play-again {
   color: #282828;
   border-color: #282828;
+}
+
+.footer {
+  margin-top: auto;
+}
+
+.footer i {
+  font-size: 1.2em;
+  margin: 0 6px;
+  transition: transform 0.5s ease-out;
+}
+
+.footer i:hover {
+  transform: rotate(360deg);
 }
 
 @media all and (max-width: 768px) {
