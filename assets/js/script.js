@@ -95,7 +95,9 @@ const roundResultText = document.querySelector(".round-result");
 const winnerPopup = document.createElement("div");
 
 const winnerText = document.createElement("div");
-const playAgainButton = document.querySelector(".play-again");
+const playAgainButton = document.createElement("button");
+playAgainButton.textContent = "Play Again";
+playAgainButton.classList.add("play-again");
 
 playAgainButton.addEventListener("click", startGame);
 winnerPopup.classList.add("winner");
