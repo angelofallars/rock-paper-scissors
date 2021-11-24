@@ -173,13 +173,23 @@ h1 {
   color: #9d0006;
 }
 
-@keyframes fadein {
+@keyframes winner--fadein {
   from {
     opacity: 0;
     transform: translateY(30px);
   }
   to {
     opacity: 1;
+  }
+}
+
+@keyframes winner--fadeout {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    transform: translateY(30px);
   }
 }
 
@@ -194,10 +204,15 @@ h1 {
   background-color: #076678;
   color: #fbf1c7;
   border-radius: 12px;
-  position: relative;
-  top: -40px;
+  position: absolute;
+  top: 320px;
   
-  animation-name: fadein;
+  animation-name: winner--fadein;
+  animation-duration: 0.40s;
+}
+
+.winner--fadeout {
+  animation-name: winner--fadeout;
   animation-duration: 0.40s;
 }
 

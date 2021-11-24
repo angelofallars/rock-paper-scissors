@@ -188,6 +188,15 @@ roundResultText.addEventListener("animationend", (e) => {
   }
 });
 
+winnerPopup.addEventListener("animationend", (e) => {
+  if (e.target.classList.contains("winner--fadeout")) {
+    container.removeChild(e.target);
+    e.target.classList.remove("winner--fadeout");
+    e.target.classList.remove("winner--green");
+    e.target.classList.remove("winner--gray");
+  }
+});
+
 function animateClickButton(e) {
   e.target.classList.add("button--click");
 }
@@ -195,9 +204,7 @@ function animateClickButton(e) {
 function startGame() {
   // Remove the game over text leftover from a previous game
   if (container.contains(winnerPopup)) {
-    container.removeChild(winnerPopup);
-    winnerPopup.classList.remove("winner--green");
-    winnerPopup.classList.remove("winner--gray");
+    winnerPopup.classList.add("winner--fadeout");
   }
 
   roundResultText.classList.remove("round-result--hidden");
