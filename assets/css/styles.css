@@ -68,10 +68,13 @@ h1 {
   font-size: 0.8em;
   width: 120px;
   height: 120px;
-  touch-action: manipulation;
   transition: transform 0.15s ease-in-out, 
               background-color 0.25s ease-in-out,
               color 0.25s ease-in-out;
+}
+
+.button[type="button"] {
+  touch-action: manipulation;
 }
 
 .button__icon {
