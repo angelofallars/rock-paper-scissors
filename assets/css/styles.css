@@ -17,6 +17,7 @@ h1 {
   align-items: center;
   font-size: 1.5em;
   margin: 20px 0;
+  text-align: center;
 }
 
 .scores {
@@ -48,6 +49,8 @@ h1 {
 
 .buttons {
   display: flex;
+  align-items: center;
+  justify-content: center;
   gap: 16px;
   margin: 20px 0;
 }
@@ -168,4 +171,36 @@ h1 {
 .winner--gray > .play-again {
   color: #282828;
   border-color: #282828;
+}
+
+@media all and (max-width: 768px) {
+  .buttons {
+    gap: 8px;
+  }
+
+  .button {
+    width: 100px;
+    height: 100px;
+    font-size: 0.58em;
+  }
+
+  @keyframes clickbtn {
+    0% {
+      transform: scale(1.00);
+    }
+    50% {
+      transform: scale(1.08);
+    }
+    100% {
+      transform: scale(1.00);
+    }
+  }
+
+  .button--click {
+    animation-name: clickbtn;
+  }
+
+  .button:hover {
+    transform: none;
+  }
 }
