@@ -176,9 +176,17 @@ async function endGame(winner) {
 
   await new Promise(resolve => setTimeout(resolve, 600));
 
+  roundResultText.classList.add("round-result--fadeout");
   container.appendChild(winnerPopup);
 
 }
+
+roundResultText.addEventListener("animationend", (e) => { 
+  if (e.target.classList.contains("round-result--fadeout")) {
+    e.target.classList.remove("round-result--fadeout");
+    e.target.classList.add("round-result--hidden");
+  }
+});
 
 function animateClickButton(e) {
   e.target.classList.add("button--click");
@@ -192,6 +200,7 @@ function startGame() {
     winnerPopup.classList.remove("winner--gray");
   }
 
+  roundResultText.classList.remove("round-result--hidden");
   roundResultText.textContent = '';
 
   playerScore.textContent = '0';

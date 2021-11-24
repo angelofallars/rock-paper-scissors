@@ -140,10 +140,29 @@ h1 {
   }
 }
 
+@keyframes round-result-fadeout {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+
 .round-result--pop {
   animation-name: new-round-result;
   animation-timing-function: ease-in-out;
   animation-duration: 0.09s;
+}
+
+.round-result--fadeout {
+  animation-name: round-result-fadeout;
+  animation-duration: 0.25s;
+}
+
+.round-result--hidden {
+  opacity: 0;
 }
 
 .round-result--green {
@@ -175,9 +194,11 @@ h1 {
   background-color: #076678;
   color: #fbf1c7;
   border-radius: 12px;
+  position: relative;
+  top: -40px;
   
   animation-name: fadein;
-  animation-duration: 0.25s;
+  animation-duration: 0.40s;
 }
 
 .winner--green {
