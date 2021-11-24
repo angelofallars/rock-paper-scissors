@@ -115,6 +115,7 @@ let aiScoreCount = 0;
 // Remove the animation class for the increment animations on the score texts
 finishAnimationEnd(playerScore, "score__number--bang");
 finishAnimationEnd(aiScore, "score__number--bang");
+finishAnimationEnd(roundResultText, "round-result--pop");
 
 
 function makePlayerMove (e) {
@@ -122,6 +123,7 @@ function makePlayerMove (e) {
     const aiMove = computerPlay();
 
     const roundResult = playRound(playerMove, aiMove);
+    roundResultText.classList.add("round-result--pop");
 
     switch (roundResult) {
       case (1):

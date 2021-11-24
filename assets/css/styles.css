@@ -131,6 +131,21 @@ h1 {
   transform: none;
 }
 
+@keyframes new-round-result {
+  from {
+    transform: scale(1.08);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.round-result--pop {
+  animation-name: new-round-result;
+  animation-timing-function: ease-in-out;
+  animation-duration: 0.09s;
+}
+
 @keyframes fadein {
   from {
     opacity: 0;
